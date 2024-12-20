@@ -1,4 +1,5 @@
 import { useHabit } from "./UseContextProvider/HabitContext";
+import ToDoList from "./components/to-do-list";
 import "./App.css";
 
 
@@ -19,8 +20,8 @@ function App() {
           </li>
         ))}
       </ul>
-    </div>
-  );
+        <ToDoList/>
+    </div>)
 }
 
 export default App;
