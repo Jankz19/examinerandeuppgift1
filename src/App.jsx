@@ -20,7 +20,7 @@ function App() {
           </li>
         ))}
       </ul>
-        <ToDoList/>
+        
     </div>)
 }
 

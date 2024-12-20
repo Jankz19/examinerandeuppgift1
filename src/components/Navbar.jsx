@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="navbar">
       <button onClick={() => navigate("/")}>Homepage</button>
       <button onClick={() => navigate("/habits")}>Habit App</button>
-      <button onClick={() => navigate("/Todos")}>Todo App</button>
+      <button onClick={() => navigate("/todos")}>Todo App</button>
       <button onClick={() => navigate("/Calendar")}>Calendar app</button>
     </nav>
   );

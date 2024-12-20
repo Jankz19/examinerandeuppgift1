@@ -76,12 +76,7 @@ function AttGöraLista() {
 
 
  return (
-   <Router>
-     <Routes>
-       <Route
-         path="/"
-         element={
-           <div className="container">
+ <div className="container">
              <h2>Glöm Inte Att Göra Listan</h2>
              <form>
                <input name="title" value={form.title} onChange={updateForm} placeholder="Titel" />
@@ -160,11 +155,6 @@ function AttGöraLista() {
                ))}
              </ul>
            </div>
-         }
-       />
-       <Route path="/task/:id" element={<RedigeraUppgift todos={uppgifter} setTodos={setUppgifter} />} />
-     </Routes>
-   </Router>
  );
 }
 
