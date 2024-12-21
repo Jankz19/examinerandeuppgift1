@@ -1,5 +1,5 @@
-import { useHabit } from "../UseContextProvider/HabitContext";
-import "../components/habit.css";
+import { useHabit } from "./UseContextProvider/HabitContext";
+import "./habit.css";
 
 const Habit = ({ habit }) => {
   const { updateRepetition, handleDeleteHabit } = useHabit();

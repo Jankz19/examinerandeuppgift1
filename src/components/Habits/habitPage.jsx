@@ -1,4 +1,4 @@
-import { useHabit } from "../UseContextProvider/HabitContext";
+import { useHabit } from "./UseContextProvider/HabitContext";
 import Habit from "./habit";
 import "./HabitPage.css";
 

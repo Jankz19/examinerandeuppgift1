@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Ensures buttons are spaced evenly */
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px 0; /* Adjusted padding for a more compact look */
+  color: white;
+  position: fixed; /* Changed from sticky to fixed for consistent top placement */
+  top: 0; /* Ensures it stays at the top */
+  width: 100%; /* Navbar spans the full width of the viewport */
+  z-index: 1000; /* Keeps the navbar above other content */
+}
+
+/* Updated button styles for equal spacing */
+.navbar button {
+  flex: 1; /* Ensures buttons take equal space */
+  text-align: center; /* Center-aligns button text */
+  background-color: white;
+  color: #007bff;
+  border: none;
+  padding: 10px 0; /* Consistent vertical padding */
+  margin: 0 5px; /* Small gap between buttons */
+  border-radius: 0; /* Removed rounding for a uniform, modern look */
+  cursor: pointer;
+  font-size: 1rem;
+  height: 100%; /* Ensures buttons fill the navbar's height */
+}
+
+/* Hover effect */
+.navbar button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Optional: Ensures content below the navbar is not hidden */
+body {
+  margin-top: 50px; /* Adjust this value to match the navbar's height */
+}

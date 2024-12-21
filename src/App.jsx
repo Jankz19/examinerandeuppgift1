@@ -1,17 +1,13 @@
-import { useHabit } from "./UseContextProvider/HabitContext";
-import ToDoList from "./components/to-do-list";
+import { useHabit } from "./components/Habits/UseContextProvider/HabitContext";
 import "./App.css";
 
-
 function App() {
-  const  {getTopHabits}  = useHabit(); 
+  const { getTopHabits } = useHabit();
 
-  const topHabits = getTopHabits(); 
+  const topHabits = getTopHabits();
 
   return (
-  
     <div className="habit-app-container">
-      
       <h2>Top 3 Habits</h2>
       <ul>
         {topHabits.map((habit) => (
@@ -20,10 +16,8 @@ function App() {
           </li>
         ))}
       </ul>
-        
-    </div>)
+    </div>
+  );
 }
 
 export default App;
-
-
