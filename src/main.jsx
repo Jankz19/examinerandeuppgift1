@@ -8,6 +8,9 @@ import Navbar from "./components/Navbar/Navbar";
 import ToDoList from "./components/To-do/to-do-list";
 import RedigeraUppgift from "./components/To-do/edit-to-do";
 import { HabitProvider } from "./components/Habits/UseContextProvider/HabitContext";
+import { EventProvider } from "./components/Calender/EventContext";
+import EventApp from "./components/Calender/EventApp";
+
 
 
 function Main() {
@@ -18,10 +21,15 @@ function Main() {
     <StrictMode>
       <BrowserRouter>
         <HabitProvider>
+        <EventProvider>
           <Navbar />
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/habits" element={<HabitPage />} />
+            <Route path="/Calendar" element={<EventApp />} />
+
+
+          
             {/* Skicka todos och setTodos till ToDoList */}
             <Route path="/todos" element={<ToDoList todos={todos} setTodos={setTodos} />} />
             {/* Skicka todos och setTodos till RedigeraUppgift */}
@@ -30,6 +38,7 @@ function Main() {
               element={<RedigeraUppgift todos={todos} setTodos={setTodos} />}
             />
           </Routes>
+          </EventProvider>
         </HabitProvider>
       </BrowserRouter>
     </StrictMode>
