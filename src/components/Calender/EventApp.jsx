@@ -4,13 +4,13 @@ import EventList from "./EventList";
 import "./eventapp.css";
 
 const EventApp = () => {
-    const {
-        events,
-        currentEvent,
-        filter,
-        setCurrentEvent,
-        setFilter,
-        saveEvent,
+const {
+    events,
+    currentEvent,
+    filter,
+    setCurrentEvent,
+    setFilter,
+    saveEvent,
     } = useContext(EventContext);
 
     const filteredEvents = events.filter((event) => {
@@ -18,14 +18,14 @@ const EventApp = () => {
         if (filter === "upcoming") return new Date(event.start) > now;
         if (filter === "past") return new Date(event.end) < now;
         return true;
-    });
+ });
 
-    return (
+      return (
         <div className="container">
             <div className="event-form">
                 <input
-                    type="text"
-                    placeholder="Event Name"
+                 type="text"
+                 placeholder="Event Name"
                     value={currentEvent.name}
                     onChange={(e) =>
                         setCurrentEvent({ ...currentEvent, name: e.target.value })
@@ -33,14 +33,14 @@ const EventApp = () => {
                 />
                 <input
                     type="datetime-local"
-                    value={currentEvent.start}
+                  value={currentEvent.start}
                     onChange={(e) =>
                         setCurrentEvent({ ...currentEvent, start: e.target.value })
                     }
                 />
                 <input
-                    type="datetime-local"
-                    value={currentEvent.end}
+                type="datetime-local"
+                 value={currentEvent.end}
                     onChange={(e) =>
                         setCurrentEvent({ ...currentEvent, end: e.target.value })
                     }
@@ -51,7 +51,7 @@ const EventApp = () => {
                 <button onClick={() => setFilter("all")}>All</button>
                 <button onClick={() => setFilter("upcoming")}>Upcoming</button>
                 <button onClick={() => setFilter("past")}>Past</button>
-            </div>
+             </div>
             <EventList events={filteredEvents} />
         </div>
     );

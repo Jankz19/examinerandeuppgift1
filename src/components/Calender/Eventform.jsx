@@ -3,19 +3,19 @@ import React from "react";
 function EventForm({ event, setEvent, onSave }) {
     return (
         <div>
-            <input
+        <input
             type="text"
             placeholder="Event Name"
             value={event.name}
             onChange={(e) => setEvent({ ...event, name: e.target.value })}
               />
-        <input
+    <input
         type="datetime-local"
-            value={event.start}
+        value={event.start}
             onChange={(e) => setEvent({ ...event, start: e.target.value })}
              />
         <input
-            type="datetime-local"
+        type="datetime-local"
             value={event.end}
             onChange={(e) => setEvent({ ...event, end: e.target.value })}
                 />

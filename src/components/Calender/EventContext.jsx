@@ -8,10 +8,10 @@ export const EventProvider = ({ children }) => {
     const [filter, setFilter] = useState("all");
 
     const saveEvent = () => {
-        if (currentEvent.name && currentEvent.start && currentEvent.end) {
+    if (currentEvent.name && currentEvent.start && currentEvent.end) {
             setEvents(
-                [...events.filter(event => event.start !== currentEvent.start), currentEvent].sort(
-                    (a, b) => new Date(a.start) - new Date(b.start)
+            [...events.filter(event => event.start !== currentEvent.start), currentEvent].sort(
+         (a, b) => new Date(a.start) - new Date(b.start)
                 )
             );
             setCurrentEvent({ name: "", start: "", end: "" });
@@ -23,18 +23,18 @@ export const EventProvider = ({ children }) => {
     };
 
     return (
-        <EventContext.Provider
-            value={{
-                events,
-                currentEvent,
-                filter,
-                setCurrentEvent,
-                setFilter,
-                saveEvent,
-                deleteEvent,
+    <EventContext.Provider
+        value={{
+        events,
+        currentEvent,
+        filter,
+        setCurrentEvent,
+        setFilter,
+        saveEvent,
+        deleteEvent,
             }}
         >
-            {children}
-        </EventContext.Provider>
+        {children}
+    </EventContext.Provider>
     );
 };
