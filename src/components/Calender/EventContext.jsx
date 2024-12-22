@@ -22,6 +22,14 @@ export const EventProvider = ({ children }) => {
         setEvents(events.filter(event => event.start !== eventToDelete.start));
     };
 
+    const getNextThreeEvents = () => {
+        const now = new Date();
+        return events
+          .filter((event) => new Date(event.start) > now) 
+          .sort((a, b) => new Date(a.start) - new Date(b.start)) 
+          .slice(0, 3); 
+      };
+
     return (
         <EventContext.Provider
             value={{
@@ -32,6 +40,7 @@ export const EventProvider = ({ children }) => {
                 setFilter,
                 saveEvent,
                 deleteEvent,
+                getNextThreeEvents, 
             }}
         >
             {children}

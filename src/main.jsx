@@ -28,8 +28,6 @@ function Main() {
             <Route path="/habits" element={<HabitPage />} />
             <Route path="/Calendar" element={<EventApp />} />
 
-
-          
             {/* Skicka todos och setTodos till ToDoList */}
             <Route path="/todos" element={<ToDoList todos={todos} setTodos={setTodos} />} />
             {/* Skicka todos och setTodos till RedigeraUppgift */}

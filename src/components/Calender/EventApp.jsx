@@ -39,7 +39,7 @@ const EventApp = () => {
                     }
                 />
                 <input
-                    type="datetime-local"
+                type="datetime-local"
                     value={currentEvent.end}
                     onChange={(e) =>
                         setCurrentEvent({ ...currentEvent, end: e.target.value })
