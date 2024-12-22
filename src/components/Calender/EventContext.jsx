@@ -10,9 +10,9 @@ export const EventProvider = ({ children }) => {
     const saveEvent = () => {
         if (currentEvent.name && currentEvent.start && currentEvent.end) {
             setEvents(
-         [...events.filter(event => event.start !== currentEvent.start), currentEvent].sort(
+                [...events.filter(event => event.start !== currentEvent.start), currentEvent].sort(
                     (a, b) => new Date(a.start) - new Date(b.start)
-                  )
+                )
             );
             setCurrentEvent({ name: "", start: "", end: "" });
         }
@@ -23,25 +23,18 @@ export const EventProvider = ({ children }) => {
     };
 
     return (
-    <EventContext.Provider
+        <EventContext.Provider
             value={{
-            events,
-            currentEvent,
-            filter,
-            setCurrentEvent,
-            setFilter,
-            saveEvent,
-            deleteEvent,
+                events,
+                currentEvent,
+                filter,
+                setCurrentEvent,
+                setFilter,
+                saveEvent,
+                deleteEvent,
             }}
         >
             {children}
         </EventContext.Provider>
     );
 };
-
-
-export const withEventProvider = (Component) => (props) => (
-    <EventProvider>
-        <Component {...props} />
-    </EventProvider>
-);
