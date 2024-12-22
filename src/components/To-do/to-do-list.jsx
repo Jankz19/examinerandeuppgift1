@@ -4,7 +4,9 @@ import RedigeraUppgift from "./edit-to-do";
 import Uppgift from "./to-do";
 import "./to-do-list.css";
 
+// Skapar en funktion som heter "AttGöraLista" för att hantera listan
 function AttGöraLista({ todos, setTodos }) {
+    // Sparar data för formuläret som används för att lägga till nya uppgifter
   const [form, setForm] = React.useState({
     title: "",
     description: "",
@@ -13,28 +15,33 @@ function AttGöraLista({ todos, setTodos }) {
     category: "Hushåll",
     status: "Ej påbörjad",
   });
-
+  
+  // Spara data för filtreringen
   const [filter, setFilter] = React.useState({
     status: "",
     category: "",
     sort: "",
   });
 
+  // Funktion som lägger till ny uppgift i listan
   const läggTillUppgift = () => {
     if (!form.title.trim()) return;
     const nyUppgift = { ...form, id: Date.now() };
     const nyaUppgifter = [...todos, nyUppgift];
     setTodos(nyaUppgifter);
     localStorage.setItem("uppgifter", JSON.stringify(nyaUppgifter));
+    // Återställ formuläret
     setForm({ title: "", description: "", estimate: "", deadline: "", category: "Hushåll", status: "Ej påbörjad" });
   };
 
+  // Filtrera uppgifter om vad man själv valt i filtering
   const filtreradeUppgifter = todos.filter(
     (uppgift) =>
       (!filter.status || uppgift.status === filter.status) &&
       (!filter.category || uppgift.category === filter.category)
   );
 
+    // Sortera uppgifter gällande vad man valt i sorteringen
   const sorteradeUppgifter = filtreradeUppgifter.sort((a, b) => {
     if (filter.sort === "deadlineAsc") return new Date(a.deadline) - new Date(b.deadline);
     if (filter.sort === "deadlineDesc") return new Date(b.deadline) - new Date(a.deadline);
@@ -42,17 +49,20 @@ function AttGöraLista({ todos, setTodos }) {
     if (filter.sort === "estimateDesc") return parseFloat(b.estimate) - parseFloat(a.estimate);
     if (filter.sort === "statusAsc")
       return ["Ej påbörjad", "Pågående", "Klar"].indexOf(a.status) -
-             ["Ej påbörjad", "Pågående", "Klar"].indexOf(b.status);
+             ["Ej påbörjad", "Pågående", "Klar"].indexOf(b.status); // Status ordning
     if (filter.sort === "statusDesc")
       return ["Klar", "Pågående", "Ej påbörjad"].indexOf(a.status) -
-             ["Klar", "Pågående", "Ej påbörjad"].indexOf(b.status);
+             ["Klar", "Pågående", "Ej påbörjad"].indexOf(b.status); // status omvänd ordning
     return 0;
   });
 
+ // Uppdatera form när man skriver skriver i den
   const updateForm = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
+  
+  // Uppdatera form när man ändrar i den i filtreringsfält
   const updateFilter = (e) => setFilter({ ...filter, [e.target.name]: e.target.value });
 
+  // Skriv ut allt renderar
   return (
     <Routes>
       <Route

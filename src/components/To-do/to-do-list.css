@@ -57,14 +57,12 @@ form button:hover {
   list-style: none;
   padding: 0;
   margin-top: 20px;
-
-  /* Added styles for scrolling */
-  max-height: 300px; /* Set the maximum height for the list */
-  overflow-y: auto; /* Make it scrollable when content exceeds height */
-  border: 1px solid #ddd; /* Optional: border to define the scroll area */
-  padding: 10px; /* Optional: some padding for better spacing */
+  max-height: 300px;
+  overflow-y: auto; 
+  border: 1px solid #ddd; 
+  padding: 10px; 
 }
-/* List item styling */
+/* Styla listan */
 .list li {
   padding: 15px;
   border: 1px solid #ddd;

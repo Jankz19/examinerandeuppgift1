@@ -11,9 +11,8 @@ import { HabitProvider } from "./components/Habits/UseContextProvider/HabitConte
 
 
 function Main() {
-  // Flytta hanteringen av todos här
+  //State för att hantera todo listan
   const [todos, setTodos] = useState([]);
-
 
   return (
     <StrictMode>
@@ -39,4 +38,3 @@ function Main() {
 
 
 createRoot(document.getElementById("root")).render(<Main />);
-

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function RedigeraUppgift({ todos, setTodos }) {
-  const { id } = useParams(); // Hämta ID från URL
+  const { id } = useParams(); // hämta ID från URL
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -37,18 +37,19 @@ function RedigeraUppgift({ todos, setTodos }) {
       todo.id === parseInt(id, 10) ? { ...form, id: todo.id } : todo
     );
     setTodos(uppdateradeTodos); // Uppdatera todos
-    localStorage.setItem("uppgifter", JSON.stringify(uppdateradeTodos)); // Spara till localStorage
-    navigate("/todos"); // Navigera tillbaka till listan
+    localStorage.setItem("uppgifter", JSON.stringify(uppdateradeTodos)); // Spara till local
+    navigate("/todos"); // Nav tillbaka till sidan
   };
 
   // Ta bort en uppgift
   const taBortUppgift = () => {
     const uppdateradeTodos = todos.filter((todo) => todo.id !== parseInt(id, 10));
     setTodos(uppdateradeTodos); // Uppdatera todos
-    localStorage.setItem("uppgifter", JSON.stringify(uppdateradeTodos)); // Spara till localStorage
-    navigate("/todos"); // Navigera tillbaka till listan
+    localStorage.setItem("uppgifter", JSON.stringify(uppdateradeTodos)); // Spara till local^^
+    navigate("/todos"); // Nav tbx till listan
   };
 
+  //Skriv ut rendzz
   return (
     <div className="container">
       <h2>Redigera Uppgift</h2>
