@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 // Komponent som visar en uppgift
 function Uppgift({ uppgift }) {
-  // Funktion för att formatera tidsestimat
+  // Fixar tiden 0.5tim m.m 
   const formatTid = (tidsestimat) =>
     `${Math.floor(tidsestimat)}:${(tidsestimat % 1) * 60 === 0 ? "00" : "30"} tim`;
  
- 
+ // Info om uppgiften
   return (
     <div className="todo">
       <p>Titel: {uppgift.title}</p>
